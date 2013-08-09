@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ToDos</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+		//Add task to list
+		$('#addButton').click(function(){
+			var addValue = $('input[name=addItem]').val();
+			$('#todoList').append("<tr><td class='itemRow' style='width:20px'><input type='checkBox' class='checkBox'></td><td>" + addValue + "</td></tr>");
+		});
+		
+		//Remove task from click
+		$(document).on('click', '.checkBox', function(){
+			$(this).closest('tr').remove();
+		});		
+	});
+</script>
+
+<style type="text/css">
+a#addButton {
+	display:inline-block;
+	padding:4px 10px;
+	text-decoration:none;
+	color:#fff;
+	background-color:blue;
+}
+
+a#add:hover {color:#000; background-color:cyan}
+</style>
+</head>
+
+<body>
+<h2>To Dos</h2>
+<form name="addItem" >
+	<input id="addItem" name="addItem" type="text">
+	<a href="#" id="addButton">Add</a>
+</form>
+<br>
+<table width="40%" border="0" cellpadding="4" cellspacing="0" id="todoList">
+</table>
+</body>
+</html>
